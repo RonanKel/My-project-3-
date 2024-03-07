@@ -49,6 +49,10 @@ public class FishyMoving : MonoBehaviour
             col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
             col.transform.localScale = new Vector3(.2f,.2f,.2f);
 
+            col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(3f,1f);
+
+            col.transform.GetChild(0).gameObject.SetActive(true);
+
             fishScript.moving = false;
             fishScript.attached = true;
             col.gameObject.transform.SetParent(transform.parent);

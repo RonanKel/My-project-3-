@@ -34,7 +34,7 @@ public class CoralScript : MonoBehaviour
     }
 
     void FixedUpdate() {
-        float verticalPosition = Mathf.Sin((Time.time - startTime) * frequency) * amplitude;
+        float verticalPosition = (Mathf.Sin((Time.time - startTime) * frequency) * amplitude) + yOffset;
 
         // Calculate the velocity based on the desired speed
         float verticalVelocity = Mathf.Cos((Time.time - startTime) * frequency) * amplitude * Mathf.PI * frequency * moveSpeed;
@@ -56,11 +56,16 @@ public class CoralScript : MonoBehaviour
         if (col.gameObject.CompareTag("Fish") && !(fishScript.attached)) {
 
             fishScript.moving = false;
-            //col.gameObject.transform.SetParent(transform.parent);
+            col.gameObject.transform.SetParent(transform.parent);
 
             col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             col.gameObject.GetComponent<SpriteRenderer>().sprite = tendrilSprite;
             col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            col.transform.localScale = new Vector3(.2f,.2f,.2f);
+
+            col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(2.8f,.8f);
+
+            col.transform.GetChild(0).gameObject.SetActive(true);
 
             joint = gameObject.AddComponent<HingeJoint2D>();
             joint.connectedBody = col.rigidbody;
