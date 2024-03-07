@@ -8,6 +8,7 @@ public class CoralScript : MonoBehaviour
     [SerializeField] FishyMoving fishScript;
     [SerializeField] float yOffset = 0f;
     [SerializeField] Rigidbody2D coralRigidbody;
+    [SerializeField] Sprite tendrilSprite;
 
     public float amplitude = 1f; // Adjust to control the height of the motion
     public float frequency = 1f; // Adjust to control the speed of the motion
@@ -57,7 +58,9 @@ public class CoralScript : MonoBehaviour
             fishScript.moving = false;
             //col.gameObject.transform.SetParent(transform.parent);
 
-            col.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            col.gameObject.GetComponent<SpriteRenderer>().sprite = tendrilSprite;
+            col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
             joint = gameObject.AddComponent<HingeJoint2D>();
             joint.connectedBody = col.rigidbody;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5895441716488826927}
   - component: {fileID: 5269912768107104071}
   - component: {fileID: -2158086230348037155}
-  - component: {fileID: -5325073613802776962}
+  - component: {fileID: 6763637434980579885}
   m_Layer: 0
   m_Name: Fishy
   m_TagString: Fish
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7980885603004257938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.68, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e3b285a71a716a4cac246504e90b582, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -103,7 +103,7 @@ MonoBehaviour:
   joint: {fileID: 0}
   fishScript: {fileID: 0}
   sr: {fileID: 0}
-  goingRight: 1
+  tendrilSprite: {fileID: 21300000, guid: 88505d0999b25684bb285ef722458877, type: 3}
   moving: 1
   attached: 0
 --- !u!50 &-2158086230348037155
@@ -127,8 +127,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-5325073613802776962
-CircleCollider2D:
+--- !u!70 &6763637434980579885
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,5 +141,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.79, y: 0.66}
+  m_Direction: 0

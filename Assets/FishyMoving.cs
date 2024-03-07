@@ -8,6 +8,7 @@ public class FishyMoving : MonoBehaviour
     [SerializeField] HingeJoint2D joint;
     [SerializeField] FishyMoving fishScript;
     [SerializeField] SpriteRenderer sr;
+    [SerializeField] Sprite tendrilSprite;
     private GameManagerScript gms;
 
     public bool moving = true;
@@ -43,11 +44,14 @@ public class FishyMoving : MonoBehaviour
             joint = gameObject.AddComponent<HingeJoint2D>();
             joint.connectedBody = col.rigidbody;
             joint.connectedAnchor = col.GetContact(0).point;
-            col.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+            col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            col.gameObject.GetComponent<SpriteRenderer>().sprite = tendrilSprite;
+            col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            col.transform.localScale = new Vector3(.2f,.2f,.2f);
 
             fishScript.moving = false;
             fishScript.attached = true;
-            //col.gameObject.transform.SetParent(transform.parent);
+            col.gameObject.transform.SetParent(transform.parent);
 
         }
     }
