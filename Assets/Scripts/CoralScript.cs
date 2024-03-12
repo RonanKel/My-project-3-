@@ -15,7 +15,6 @@ public class CoralScript : MonoBehaviour
     public float moveSpeed = 2f;
 
 
-    private float timeCounter = 0f;
 
     private float startTime;
 
@@ -56,14 +55,24 @@ public class CoralScript : MonoBehaviour
         if (col.gameObject.CompareTag("Fish") && !(fishScript.attached)) {
 
             fishScript.moving = false;
-            col.gameObject.transform.SetParent(transform.parent);
+            col.gameObject.transform.SetParent(transform);
 
-            col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            //Sprite
+            //col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            //col.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
             col.gameObject.GetComponent<SpriteRenderer>().sprite = tendrilSprite;
-            col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            col.transform.localScale = new Vector3(.2f,.2f,.2f);
+            //col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
-            col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(2.8f,.8f);
+
+            //col.transform.localScale = new Vector3(.2f,.2f,.2f);
+            col.transform.localScale = new Vector3(1f,1f,1f);
+
+            //col.transform.GetComponent<SpriteRenderer>()
+
+            col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(4f,1f);
+            //col.transform.rotation = new Quaternion(0f,0f,90f,0f);
+
+
 
             col.transform.GetChild(0).gameObject.SetActive(true);
 

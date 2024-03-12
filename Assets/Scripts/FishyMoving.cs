@@ -32,6 +32,7 @@ public class FishyMoving : MonoBehaviour
                 Vector2 movement = new Vector2(-1f, 0f);
                 GetComponent<Rigidbody2D>().velocity = movement * 5;
             }
+            
         }
     }
 
@@ -40,22 +41,29 @@ public class FishyMoving : MonoBehaviour
         fishScript = col.gameObject.GetComponent<FishyMoving>();
 
         if (col.gameObject.CompareTag("Fish") && !moving && !(fishScript.attached)) {
+
             Debug.Log("FishTouch");
-            joint = gameObject.AddComponent<HingeJoint2D>();
-            joint.connectedBody = col.rigidbody;
-            joint.connectedAnchor = col.GetContact(0).point;
-            col.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-            col.gameObject.GetComponent<SpriteRenderer>().sprite = tendrilSprite;
-            col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            col.transform.localScale = new Vector3(.2f,.2f,.2f);
-
-            col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(3f,1f);
-
-            col.transform.GetChild(0).gameObject.SetActive(true);
-
             fishScript.moving = false;
             fishScript.attached = true;
             col.gameObject.transform.SetParent(transform.parent);
+
+            
+
+            //col.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            col.gameObject.GetComponent<SpriteRenderer>().sprite = tendrilSprite;
+            //col.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            //col.transform.localScale = new Vector3(.2f,.2f,.2f);
+            col.transform.localScale = new Vector3(1f,1f,1f);
+
+            col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(4f,1f);
+
+
+
+            col.transform.GetChild(0).gameObject.SetActive(true);
+
+            joint = gameObject.AddComponent<HingeJoint2D>();
+            joint.connectedBody = col.rigidbody;
+            joint.connectedAnchor = col.GetContact(0).point;
 
         }
     }
