@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class GameManagerScript : MonoBehaviour
 
 
     [SerializeField] GameObject canvas;
+    [SerializeField] Button lButton;
         
 
 
@@ -31,7 +34,6 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(fishTotal);
         // If fishTotal is ever equal to 0, that means the player lost all their fish and the game is over
         if (fishTotal <= 0) {
             Debug.Log("You Lose!");
@@ -78,5 +80,19 @@ public class GameManagerScript : MonoBehaviour
     public void ContinueGame() {
         Time.timeScale = 1f;
         canvas.SetActive(false);
+    }
+
+    /*private void ButtonChange(string text, GameObject button) {
+        
+    }*/
+
+    public void AddFish(int x) {
+        Debug.Log(x);
+        fishTotal += x;
+        ContinueGame();
+    }
+
+    public void InterpretButton(int x) {
+
     }
 }
