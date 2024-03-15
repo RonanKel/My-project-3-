@@ -84,6 +84,8 @@ public class CoralScript : MonoBehaviour
             joint = gameObject.AddComponent<HingeJoint2D>();
             joint.connectedBody = col.rigidbody;
             joint.connectedAnchor = col.GetContact(0).point;
+
+            fishScript.attached = true;
         }
     }
 
@@ -93,7 +95,7 @@ public class CoralScript : MonoBehaviour
         Then it is called again after a random period of time. These jellyfish will always be moving.
         */
         // Picks random direction.
-        direction = new Vector2(Random.Range(-1f,1f), Random.Range(0,2f)).normalized;
+        direction = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f)).normalized;
 
         // Jumps in that direction with random force.
         coralRigidbody.AddForce(direction * force * Random.Range(.75f, 1.5f), ForceMode2D.Impulse);
