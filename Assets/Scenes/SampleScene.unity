@@ -500,8 +500,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1374552710}
         m_TargetAssemblyTypeName: GameManagerScript, Assembly-CSharp
-        m_MethodName: InterpretButton
-        m_Mode: 3
+        m_MethodName: TrippleShot
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1080,14 +1080,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747610028}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.001105018, w: 0.9999994}
   m_LocalPosition: {x: -8.1437, y: -0.1203, z: 50}
   m_LocalScale: {x: 4.1927, y: 10.6606, z: -3.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.127}
 --- !u!114 &747610033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,6 +1191,7 @@ MonoBehaviour:
   rspawner: {fileID: 362283853}
   canvas: {fileID: 1551893382}
   lButton: {fileID: 1525848975}
+  tripleShot: 0
 --- !u!4 &1374552711
 Transform:
   m_ObjectHideFlags: 0

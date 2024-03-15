@@ -11,19 +11,32 @@ public class FishyMoving : MonoBehaviour
     [SerializeField] Sprite tendrilSprite;
     private GameManagerScript gms;
 
+    public Vector2 direction = Vector2.right;
+
     public bool moving = true;
     public bool attached = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         gms = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        direction = gms.goingRight ? direction : direction * new Vector2(-1f, 1f);
+        rb.velocity = direction.normalized * 5;
+
+
+
+        GetComponent<Rigidbody2D>().velocity = direction.normalized * 5;
+    }
+
+    void Awake() {
+        GetComponent<Rigidbody2D>().velocity = direction * 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving) {
+        /*if (moving) {
             if (gms.goingRight) {
                 Vector2 movement = new Vector2(1f, 0f);
                 GetComponent<Rigidbody2D>().velocity = movement * 5;
@@ -33,7 +46,7 @@ public class FishyMoving : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = movement * 5;
             }
             
-        }
+        }*/
     }
 
 
@@ -57,7 +70,7 @@ public class FishyMoving : MonoBehaviour
 
             col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(4f,1f);
 
-
+            col.gameObject.layer = 8;
 
             col.transform.GetChild(0).gameObject.SetActive(true);
 

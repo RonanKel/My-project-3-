@@ -23,7 +23,7 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] GameObject canvas;
     [SerializeField] Button lButton;
         
-
+    public bool tripleShot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -87,8 +87,13 @@ public class GameManagerScript : MonoBehaviour
     }*/
 
     public void AddFish(int x) {
-        Debug.Log(x);
+        Debug.Log("Added " + x + " Fish!");
         fishTotal += x;
+        ContinueGame();
+    }
+
+    public void TrippleShot() {
+        tripleShot = true;
         ContinueGame();
     }
 

@@ -77,6 +77,8 @@ public class CoralScript : MonoBehaviour
             col.transform.GetComponent<CapsuleCollider2D>().size = new Vector2(4f,1f);
             //col.transform.rotation = new Quaternion(0f,0f,90f,0f);
 
+            col.gameObject.layer = 8;
+
 
 
             col.transform.GetChild(0).gameObject.SetActive(true);

@@ -6,6 +6,7 @@ public class FishSpawningScript : MonoBehaviour
 {
     [SerializeField] GameObject objectToSpawn;
     [SerializeField] GameManagerScript gms;
+    private GameObject fish;
 
 
     // Start is called before the first frame update
@@ -26,8 +27,22 @@ public class FishSpawningScript : MonoBehaviour
 
         // Instantiate the prefab at the mouse position
         if (gms.fishShot < gms.fishTotal) {
-            Instantiate(objectToSpawn, mousePosition, Quaternion.identity);
-            gms.fishShot += 1;
+            if (gms.tripleShot) {
+                fish = Instantiate(objectToSpawn, mousePosition, new Quaternion(0f,0f,0f,0f));
+                fish.GetComponent<FishyMoving>().direction = new Vector2(1f, 1.53747533092f);
+
+                fish = Instantiate(objectToSpawn, mousePosition, new Quaternion(0f,0f,0f,0f));
+                fish.GetComponent<FishyMoving>().direction = new Vector2(1f, 0f);
+
+                fish = Instantiate(objectToSpawn, mousePosition, new Quaternion(0f,0f,0f,0f));
+                fish.GetComponent<FishyMoving>().direction = new Vector2(1f, -1.53747533092f);
+                
+                gms.fishShot += 3;
+            }
+            else {
+                Instantiate(objectToSpawn, mousePosition, Quaternion.identity);
+                gms.fishShot += 1;
+            }
         }
    }
 }

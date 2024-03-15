@@ -189,6 +189,7 @@ MonoBehaviour:
   fishScript: {fileID: 0}
   sr: {fileID: 0}
   tendrilSprite: {fileID: 21300000, guid: a132158419b614faaaf5d37b2abf7c5a, type: 3}
+  direction: {x: 1, y: 0}
   moving: 1
   attached: 0
 --- !u!50 &4717778689933428793
@@ -205,9 +206,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7bec0394c82c94adb9cb0d5fc0277a36, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
